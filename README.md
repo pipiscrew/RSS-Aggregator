@@ -13,7 +13,7 @@ The feed URLs have to setup directly to MySQL at **providers** table. When an er
 To start work with :
 
 - create the tables (create_tables.sql)
-- add a cron job as 'php -q /home/public_html/test/cron.php' or execute it manually
+- add a cron job as `php -q /home/public_html/test/cron.php` or execute it manually
 
 In addition there are two more pages :
 
@@ -21,24 +21,24 @@ In addition there are two more pages :
 
 - Tne **archive** page where user can search the feeds stored (without date limitation). Is accessible by browsing at `/archive` folder. The grid used with server pagination is (an old version) of wenzhixin - bootstrap-table.
 
-When the **providers.provider_enabled** set to 0, feed is diabled (will not get parsed).
+When the **providers.provider_enabled** set to `0`, feed is diabled (will not get parsed).
 
 The **providers.provider_headline** is what written on article subtitle (index.php).
 
 The **providers.benchmark** is the (last) time made to download and parse the feed (cron.php).
 
-The **providers.provider_order** is the order used for parsing mechanism (cron.php). The pplication to avoid duplicates, each feed article has a field **feeds.feed_hash** which is the md5 hash of the title.
+The **providers.provider_order** is the order used for parsing mechanism (cron.php). The application to avoid duplicates, on each feed article has the **feeds.feed_hash** field which is the md5 hash of the title.
 
-When the **providers.provider_visible** set to 0, the feed continuing to get parsed but is not displayed to main feed page (index.php). The only way to access the articles for this feed is by archive or statistics page (it will have the eye icon).
+When the **providers.provider_visible** set to `0`, the feed continuing to get parsed but is not displayed to main feed page (index.php). The only way to access the articles for this feed is by archive or statistics page (it will have the eye icon).
 
-At index.php items sorted by `id`, because some feeds providing a date without timestamp and is not UTC.
+At `index.php` items sorted by `id`, because some feeds providing a date without timestamp and is not UTC.
 
 If the feed url you trying, is unable to be parsed by simplepie, is because of curl SSL error, add this line to `SimplePie.php` : 7209
 ```
 curl_setopt($fp, CURLOPT_SSL_VERIFYPEER, false);
 ```
 
-If you getting record insert error, use utf8mb4 'character set' at dbase.
+If you getting record insert error, use `utf8mb4` 'character set' at dbase.
 
 After all, if is not enough, try 
 - [miniflux](https://github.com/denfil/miniflux-php)
