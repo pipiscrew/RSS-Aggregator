@@ -4,7 +4,7 @@ Is a minimal PHP application (15 files) designed to parse and display feeds. Con
 
 ![1503](https://user-images.githubusercontent.com/3852762/92325863-89531a80-f056-11ea-9d48-5c2d20dd6f14.jpg)
 
-For feed parsing uses [simplepie monolithic](https://github.com/simplepie/simplepie) version, responsiveness by bootstrap.
+For feed parsing uses [simplepie monolithic v1.5.5](https://github.com/simplepie/simplepie) version, responsiveness by bootstrap.
 
 The main feed page displays articles for yesterday & today. User is able to see older articles by providing `?d=6` parameter to URL, which translated six days back.
 
