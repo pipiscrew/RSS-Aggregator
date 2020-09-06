@@ -31,7 +31,7 @@ The **providers.provider_order** is the order used for parsing mechanism (cron.p
 
 When the **providers.provider_visible** set to `0`, the feed continuing to get parsed but is not displayed to main feed page (index.php). The only way to access the articles for this feed is by `archive` or `statistics` page (it will have the `eye` icon).
 
-At `index.php` items sorted by `id`, because some feeds providing a date without timestamp and is not UTC.
+At `index.php` items sorted by `id`, because some feeds providing a date without timestamp or is not UTC.
 
 If the feed url you trying, is unable to get parsed by simplepie, is because of curl SSL error, add this line to `SimplePie.php` : 7209
 ```
