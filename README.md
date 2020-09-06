@@ -29,7 +29,7 @@ The **providers.benchmark** is the (last) time made to download and parse the fe
 
 The **providers.provider_order** is the order used for parsing mechanism (cron.php). The application to avoid duplicates, on each feed article has the **feeds.feed_hash** field which is the md5 hash of the title.
 
-When the **providers.provider_visible** set to `0`, the feed continuing to get parsed but is not displayed to main feed page (index.php). The only way to access the articles for this feed is by archive or statistics page (it will have the eye icon).
+When the **providers.provider_visible** set to `0`, the feed continuing to get parsed but is not displayed to main feed page (index.php). The only way to access the articles for this feed is by `archive` or `statistics` page (it will have the `eye` icon).
 
 At `index.php` items sorted by `id`, because some feeds providing a date without timestamp and is not UTC.
 
