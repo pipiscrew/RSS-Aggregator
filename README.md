@@ -33,7 +33,7 @@ When the **providers.provider_visible** set to `0`, the feed continuing to get p
 
 At `index.php` items sorted by `id`, because some feeds providing a date without timestamp and is not UTC.
 
-If the feed url you trying, is unable to be parsed by simplepie, is because of curl SSL error, add this line to `SimplePie.php` : 7209
+If the feed url you trying, is unable to get parsed by simplepie, is because of curl SSL error, add this line to `SimplePie.php` : 7209
 ```
 curl_setopt($fp, CURLOPT_SSL_VERIFYPEER, false);
 ```
