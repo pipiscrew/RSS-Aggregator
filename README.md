@@ -21,7 +21,7 @@ In addition there are two more pages :
 
 - Tne **archive** page where user can search the feeds stored (without date limitation). Is accessible by browsing at `/archive` folder. The grid used with server pagination is (an old version) of wenzhixin - bootstrap-table.
 
-When the **providers.provider_enabled** set to `0`, feed is diabled (will not get parsed).
+When the **providers.provider_enabled** set to `0`, feed is disabled (will not get parsed).
 
 The **providers.provider_headline** is what written on article subtitle (index.php).
 
