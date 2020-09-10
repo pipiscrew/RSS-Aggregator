@@ -80,8 +80,22 @@ $eye_icon = '<svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-
   <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
   </svg>';
 
+//exclusive [start]
+$exclusive = $db->getSet('select keyword from exclusive_keywords where isactive = 1', null);
+$exclusive_count = 0;
+
+if ($exclusive) {
+	$exclusive_where = "'".$db->getCSV($exclusive, 'keyword','|')."'";
+
+	//https://dev.mysql.com/doc/refman/8.0/en/regexp.html
+	$exclusive_count = $db->getScalar("SELECT count(*) FROM feeds WHERE feed_title RLIKE $exclusive_where", null);
+}
+//exclusive [end]
 
 echo '<table class="gridtable">';
+
+if ($exclusive_count > 0)
+	echo "<tr><td><a target='_blank' href='{$base}exclusive'>Exclusive</a></td><td>$exclusive_count</td></tr>";
 
 foreach ($result as $row) {
 	echo '<tr>';

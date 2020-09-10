@@ -82,8 +82,17 @@ else
 
 $providerWhere = '';
 if (isset($_GET['p'])) {
-	$providerWhereValidation = intval($_GET['p']);
-	$providerWhere = ' and feeds.feed_provider_id = ' . $providerWhereValidation;
+	
+	if ($_GET['p'] == 'exclusive') {
+		$exclusive = $db->getSet('select keyword from exclusive_keywords where isactive = 1', null);
+		$exclusive_where = "'".$db->getCSV($exclusive, 'keyword','|')."'";
+		
+		$providerWhere = " and feed_title RLIKE  $exclusive_where ";
+	}
+	else {
+		$providerWhereValidation = intval($_GET['p']);
+		$providerWhere = ' and feeds.feed_provider_id = ' . $providerWhereValidation;
+	}
 }
 else {
 	$providerWhere = ' and provider_visible = 1 ';
@@ -106,6 +115,10 @@ foreach ($feeds as $value){
 ?>
 
 </div>
+
+<script>
+	document.title += ' / <?=sizeof($feeds)?>'
+</script>
 
 </body>
 </html>
