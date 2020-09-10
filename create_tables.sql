@@ -26,6 +26,12 @@ CREATE TABLE `provider_logs` (
   `date_rec` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+CREATE TABLE `exclusive_keywords` (
+  `id` int(11) NOT NULL,
+  `keyword` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `isactive` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 ALTER TABLE `feeds`
   ADD PRIMARY KEY (`feed_id`);
@@ -36,6 +42,9 @@ ALTER TABLE `providers`
 ALTER TABLE `provider_logs`
   ADD PRIMARY KEY (`provider_log_id`);
 
+ALTER TABLE `exclusive_keywords`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `feeds`
   MODIFY `feed_id` int(11) NOT NULL AUTO_INCREMENT;
 
@@ -44,10 +53,13 @@ ALTER TABLE `providers`
 
 ALTER TABLE `provider_logs`
   MODIFY `provider_log_id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `exclusive_keywords`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
  
 COMMIT;
 
 INSERT INTO `providers` (`provider_id`, `provider_url`, `provider_enabled`, `provider_visible`, `provider_once_per_day`, `provider_last_run`, `provider_headline`, `benchmark`, `provider_order`) VALUES
-(1, 'http://feeds.bbci.co.uk/news/world/europe/rss.xml	', 1, 1, 0, '2020-08-16 08:21:58', 'BBC', 0.0000, 5);
+(1, 'https://www.reddit.com/r/science/.rss', 1, 1, 0, '2020-08-16 08:21:58', 'BBC', 0.0000, 5);
 
 COMMIT;

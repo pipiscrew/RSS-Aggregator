@@ -38,7 +38,11 @@ If the feed url you trying, is unable to get parsed by simplepie, is because of 
 curl_setopt($fp, CURLOPT_SSL_VERIFYPEER, false);
 ```
 
-If you getting record insert error, use `utf8mb4` 'character set' at dbase.
+If you getting record insert error, use `utf8mb4` 'character set' at dbase, or use `General.escape_str` fucntion at insertion (cron.php).
+
+> feature/exclusive :
+
+Added a new table **exclusive_keywords**, this will be a feed in **statistics** page (stats.php) called `exclusive`. When this clicked, any feed title contains any of the `exclusive_keywords.keywords` text, will appear. The existence of this is to filter the important feeds articles.
 
 After all, if is not enough, try 
 - [miniflux](https://github.com/denfil/miniflux-php)

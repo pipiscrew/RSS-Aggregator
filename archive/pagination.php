@@ -26,15 +26,15 @@ $limit = $_GET['limit'];
 $offset= $_GET['offset'];
 
 
-$conn = new dbase();
+$db = new dbase();
 
-$conn->connect();
+$db->connect();
 
 //when user search for something
 $search = null;
 
 if (isset($_GET['search']))
-	$search = $conn->escape_str($_GET['search']);
+	$search = $db->escape_str($_GET['search']);
 
 
 $sql='select feed_title, feed_url, feed_date from feeds ';
@@ -58,8 +58,8 @@ if (isset($search) && !empty($search))
 
 //////////////////////////////////////WHEN SORT COLUMN NAME SPECIFIED
 if (isset($_GET['name']) && isset($_GET['order'])) {
-	$ordercol= $conn->escape_str($_GET['name']);
-	$orderby= $conn->escape_str($_GET['order']);
+	$ordercol= $db->escape_str($_GET['name']);
+	$orderby= $db->escape_str($_GET['order']);
 
 	if ($orderby=='asc' || $orderby=='desc') {
 
@@ -74,7 +74,7 @@ if (isset($_GET['name']) && isset($_GET['order'])) {
 
 
 //////////////////////////////////////PREPARE
-$stmt = $conn->getConnection()->prepare($sql.' limit :offset,:limit');
+$stmt = $db->getConnection()->prepare($sql.' limit :offset,:limit');
 
 
 //////////////////////////////////////WHEN SEARCH TEXT SPECIFIED *BIND*
@@ -102,14 +102,14 @@ $rows = $stmt->fetchAll();
 //////////////////////////////////////COUNT TOTAL 
 if (isset($search) && !empty($search)) {
 	if (sizeof($search_arr)==1){
-		$count_recs = $conn->getScalar($count_query_sql, array(':searchTerm' => '%'.$search_arr[0].'%'));
+		$count_recs = $db->getScalar($count_query_sql, array(':searchTerm' => '%'.$search_arr[0].'%'));
 	} else {
-		$count_recs = $conn->getScalar($count_query_sql, array(':searchTerm' => '%'.$search_arr[0].'%', ':searchTerm2' => '%'.$search_arr[1].'%', ':searchTerm3' => '%'.$search_arr[2].'%'));
+		$count_recs = $db->getScalar($count_query_sql, array(':searchTerm' => '%'.$search_arr[0].'%', ':searchTerm2' => '%'.$search_arr[1].'%', ':searchTerm3' => '%'.$search_arr[2].'%'));
 	}
 }
 else
 {	
-	$count_recs = $conn->getScalar($count_query_sql, null);
+	$count_recs = $db->getScalar($count_query_sql, null);
 }
 
 //////////////////////////////////////JSON ENCODE

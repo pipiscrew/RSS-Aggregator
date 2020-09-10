@@ -56,6 +56,16 @@ class dbase{
 		return $this->db;
 	}
 	
+	function getCSV($set, $fieldName, $delimiter)
+	{
+		$arr = array();
+
+		foreach ( $set as $row ) 
+			$arr[] = $row[$fieldName];
+		
+		return implode($delimiter, $arr);
+	}
+
 	function escape_str($value)
 	{   //src - https://stackoverflow.com/a/1162502
 		$search = array("\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a");
