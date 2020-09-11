@@ -38,7 +38,7 @@ If the feed url you trying, is unable to get parsed by simplepie, is because of 
 curl_setopt($fp, CURLOPT_SSL_VERIFYPEER, false);
 ```
 
-If you getting record insert error, use `utf8mb4` 'character set' at dbase, or use `General.escape_str` fucntion at insertion (cron.php).
+If you getting record insert error, use `utf8mb4` 'character set' at dbase, or use `General.escape_str` function at insertion (cron.php).
 
 > feature/exclusive :
 
