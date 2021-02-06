@@ -49,7 +49,7 @@ After all, if is not enough, try
 - [miniflux](https://github.com/denfil/miniflux-php)
 - [Tiny Tiny RSS](https://tt-rss.org/)
 - [InBefore](https://codecanyon.net/item/inbefore-news-aggregator-search-engine-youtube-downloader/24809255) (paid)
-- [desktop - rssguard] (https://github.com/martinrotter/rssguard)
+- [rssguard] (https://github.com/martinrotter/rssguard)
 
 
 # This project uses the following 3rd-party dependencies :
