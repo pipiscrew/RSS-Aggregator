@@ -45,9 +45,11 @@ If you getting record insert error, use `utf8mb4` 'character set' at dbase, or u
 Added a new table **exclusive_keywords**, this will be a feed in **statistics** page (stats.php) called `exclusive`. When this clicked, any feed title contains any of the `exclusive_keywords.keywords` text, will appear. The existence of this is to filter the important feed articles.
 
 After all, if is not enough, try 
+- [FreshRSS](https://github.com/FreshRSS/FreshRSS)
 - [miniflux](https://github.com/denfil/miniflux-php)
 - [Tiny Tiny RSS](https://tt-rss.org/)
 - [InBefore](https://codecanyon.net/item/inbefore-news-aggregator-search-engine-youtube-downloader/24809255) (paid)
+- [desktop - rssguard] (https://github.com/martinrotter/rssguard)
 
 
 # This project uses the following 3rd-party dependencies :
